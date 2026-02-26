@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FinCalc - Simulador Financeiro</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --brand: #0d6efd;
+      --ink: #0b1220;
+      --muted: #6b7280;
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+      --soft: rgba(13, 110, 253, .08);
+    }
+
+    body {
+      color: var(--ink);
+      background: #f8fafc;
+    }
+
+    .navbar {
+      backdrop-filter: blur(10px);
+    }
+
+    .hero {
+      background:
+        radial-gradient(1200px 450px at 10% 0%, var(--soft), transparent 60%),
+        radial-gradient(900px 320px at 90% 20%, rgba(32, 201, 151, .12), transparent 55%),
+        linear-gradient(180deg, #ffffff, #f8fafc);
+      border-bottom: 1px solid rgba(0, 0, 0, .06);
+    }
+
+    .hero .badge {
+      background: rgba(13, 110, 253, .10);
+      color: var(--brand);
+      border: 1px solid rgba(13, 110, 253, .18);
+    }
+
+    .card {
+      border: 1px solid rgba(0, 0, 0, .06);
+      box-shadow: var(--card-shadow);
+      border-radius: 1.25rem;
+    }
+
+    .phone-wrap {
+      background: linear-gradient(135deg, rgba(13, 110, 253, .10), rgba(32, 201, 151, .10));
+      border-radius: 1.25rem;
+      border: 1px solid rgba(0, 0, 0, .06);
+      padding: 1rem;
+    }
+
+    .kpi {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, .06);
+      border-radius: 1rem;
+      padding: .75rem .9rem;
+    }
+
+    .small-muted {
+      color: var(--muted);
+    }
+
+    footer a {
+      text-decoration: none;
+    }
+
+    .store-badge {
+      height: 56px;
+      width: auto;
+    }
+
+    @media (max-width: 576px) {
+      .store-badge {
+        height: 52px;
+      }
+    }
+
+    .video-mockup-wrapper {
+      max-width: 360px;
+      width: 100%;
+    }
+    .video-mockup-wrapper .video-aspect-spacer {
+      width: 100%;
+      padding-bottom: 177.78%; /* 16/9 para proporção 9:16 */
+    }
+    .video-thumb,
+    .video-cont {
+      transition: opacity 0.4s ease;
+    }
+    .video-cont {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .video-cont.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .video-thumb.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Constantes/links (apenas para você visualizar) -->
+  <!-- Play Store: https://play.google.com/store/apps/details?id=com.cwrsiqueira.fincalc&pcampaignid=web_share -->
+  <!-- Badge local: /assets/google-play-badge.png -->
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white sticky-top border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">FinCalc</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="politica-privacidade.html">Política</a></li>
+          <li class="nav-item"><a class="nav-link" href="termos-de-uso.html">Termos</a></li>
+
+          <li class="nav-item">
+            <a class="nav-link px-2"
+              href="https://play.google.com/store/apps/details?id=com.cwrsiqueira.fincalc&pcampaignid=web_share"
+              target="_blank" rel="noopener noreferrer">
+              <img class="store-badge" src="assets/google-play-badge.png" alt="Disponível no Google Play">
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <button class="btn btn-outline-secondary btn-sm" type="button" disabled title="Em breve">
+              App Store (em breve)
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero py-5">
+    <div class="container py-lg-4">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <span class="badge rounded-pill px-3 py-2 mb-3">12 simuladores financeiros em um só app</span>
+          <h1 class="display-5 fw-bold mb-3">FinCalc - Simulador Financeiro</h1>
+          <p class="lead mb-4">
+            Juros simples e compostos, renda passiva, aposentadoria, empréstimo PRICE/SAC, conversores e mais.
+            Simule cenários e planeje com praticidade.
+          </p>
+
+          <div class="d-flex flex-wrap gap-2 mb-4">
+            <span class="kpi">✓ <strong>12 simuladores</strong></span>
+            <span class="kpi">✓ <strong>3 grátis</strong>, demais no premium</span>
+            <span class="kpi">✓ <strong>Sem anúncios</strong> (premium)</span>
+          </div>
+
+          <div class="d-flex flex-wrap align-items-center gap-3">
+            <a href="https://play.google.com/store/apps/details?id=com.cwrsiqueira.fincalc&pcampaignid=web_share"
+              target="_blank" rel="noopener noreferrer">
+              <img class="store-badge" src="assets/google-play-badge.png" alt="Disponível no Google Play">
+            </a>
+
+            <button class="btn btn-outline-secondary" type="button" disabled title="Em breve">
+              App Store (em breve)
+            </button>
+          </div>
+
+          <p class="small small-muted mt-3 mb-0">
+            Ao usar o app, você concorda com nossos <a href="termos-de-uso.html">Termos</a> e <a
+              href="politica-privacidade.html">Política de Privacidade</a>.
+          </p>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="position-relative text-center">
+
+            <!-- Wrapper: thumbnail e vídeo no mesmo tamanho, transição suave -->
+            <div class="video-mockup-wrapper position-relative mx-auto">
+              <!-- Espaçador: garante altura do wrapper (9:16) -->
+              <div class="video-aspect-spacer"></div>
+              <!-- Vídeo primeiro (atrás), thumbnail por cima -->
+              <div id="videoContainer" class="video-cont position-absolute rounded-4 overflow-hidden shadow-lg border"
+                style="inset: 0; z-index: 1;">
+                <iframe id="youtubeVideo" src=""
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <!-- Thumbnail clicável (por cima do vídeo) -->
+              <div id="videoThumbnail" class="video-thumb position-absolute top-0 start-0 w-100 h-100 rounded-4 overflow-hidden shadow-lg border"
+                style="cursor: pointer; z-index: 2;">
+                <img src="assets/fincalc-mockup.png" alt="FinCalc - Simulador Financeiro"
+                  class="w-100 h-100" style="object-fit: cover;">
+                <div class="position-absolute top-0 start-0 w-100 h-100 rounded-4"
+                  style="background: rgba(0,0,0,0.15); pointer-events: none;"></div>
+                <div class="position-absolute top-50 start-50 translate-middle" style="pointer-events: none;">
+                  <div class="bg-white rounded-circle shadow d-flex align-items-center justify-content-center"
+                    style="width:80px;height:80px;">
+                    <svg width="32" height="32" fill="#0d6efd" viewBox="0 0 16 16">
+                      <path d="M6 4.5v7l6-3.5-6-3.5z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Seção cards -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Card app -->
+        <div class="col-lg-8">
+          <div class="card h-100">
+            <div class="card-body p-4 p-lg-5">
+              <h2 class="h3 fw-bold mb-2">Simule com rapidez e clareza</h2>
+              <p class="small-muted mb-4">
+                Tenha em mãos simuladores essenciais para comparar cenários e planejar melhor.
+              </p>
+
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <div class="p-3 rounded-4 border bg-white h-100">
+                    <div class="fw-semibold mb-1">Juros e projeções</div>
+                    <div class="small small-muted">Juros simples/compostos, valor futuro, conversões e mais.</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 rounded-4 border bg-white h-100">
+                    <div class="fw-semibold mb-1">Planejamento</div>
+                    <div class="small small-muted">Renda passiva e simulação de aposentadoria.</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 rounded-4 border bg-white h-100">
+                    <div class="fw-semibold mb-1">Empréstimos</div>
+                    <div class="small small-muted">Compare tabelas PRICE e SAC com facilidade.</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 rounded-4 border bg-white h-100">
+                    <div class="fw-semibold mb-1">Premium</div>
+                    <div class="small small-muted">Todas as calculadoras liberadas e sem anúncios.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-wrap align-items-center gap-3">
+                <a href="https://play.google.com/store/apps/details?id=com.cwrsiqueira.fincalc&pcampaignid=web_share"
+                  target="_blank" rel="noopener noreferrer">
+                  <img class="store-badge" src="assets/google-play-badge.png" alt="Disponível no Google Play">
+                </a>
+                <a class="btn btn-outline-primary" href="politica-privacidade.html">Ver Política</a>
+                <a class="btn btn-outline-primary" href="termos-de-uso.html">Ver Termos</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Card institucional -->
+        <div class="col-lg-4">
+          <div class="card h-100">
+            <div class="card-body p-4">
+              <h3 class="h5 fw-bold mb-3">Contato e documentos</h3>
+              <p class="small-muted mb-3">
+                Dúvidas, suporte e informações oficiais.
+              </p>
+
+              <div class="d-grid gap-2 mb-4">
+                <a class="btn btn-outline-primary" href="politica-privacidade.html">Política de Privacidade</a>
+                <a class="btn btn-outline-primary" href="termos-de-uso.html">Termos de Uso</a>
+              </div>
+
+              <div class="small">
+                <div class="fw-semibold">Suporte</div>
+                <a href="mailto:suporte@carlosdev.com.br">suporte@carlosdev.com.br</a>
+              </div>
+
+              <hr class="my-4">
+
+              <div class="small small-muted">
+                Versão grátis: 3 calculadoras<br>
+                Premium: todas liberadas + sem anúncios
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4 border-top bg-white">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
+      <div class="small small-muted">© 2026 – FinCalc - Simulador Financeiro. Todos os direitos reservados.</div>
+      <div class="small">
+        <a href="politica-privacidade.html">Política</a>
+        <span class="mx-2">•</span>
+        <a href="termos-de-uso.html">Termos</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById("videoThumbnail").addEventListener("click", function () {
+      const thumb = this;
+      const container = document.getElementById("videoContainer");
+      const iframe = document.getElementById("youtubeVideo");
+      const wrapper = container.parentElement;
+
+      // Garante dimensões explícitas no iframe (evita altura 0)
+      const rect = wrapper.getBoundingClientRect();
+      iframe.style.width = rect.width + "px";
+      iframe.style.height = rect.height + "px";
+
+      // Carrega vídeo com autoplay
+      iframe.src = "https://www.youtube.com/embed/FoWzHBXiEmc?autoplay=1";
+
+      // Transição suave: fade out thumbnail, fade in vídeo
+      thumb.classList.add("is-hidden");
+      container.classList.add("is-visible");
+    });
+  </script>
+</body>
+
+</html>
