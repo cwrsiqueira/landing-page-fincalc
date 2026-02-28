@@ -7,10 +7,10 @@
   <title>FinCalc - Simulador Financeiro</title>
 
   <!-- Favicon -->
-  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
 
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap 5 (local) -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
     :root {
@@ -190,14 +190,12 @@
             <div class="video-mockup-wrapper position-relative mx-auto">
               <!-- Espaçador: garante altura do wrapper (9:16) -->
               <div class="video-aspect-spacer"></div>
-              <!-- Vídeo primeiro (atrás), thumbnail por cima -->
+              <!-- Vídeo local (atrás), thumbnail por cima -->
               <div id="videoContainer" class="video-cont position-absolute rounded-4 overflow-hidden shadow-lg border"
                 style="inset: 0; z-index: 1;">
-                <iframe id="youtubeVideo" src=""
-                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen>
-                </iframe>
+                <video id="localVideo" src="assets/Apresentacao_FinCalc.mp4" controls playsinline
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                </video>
               </div>
               <!-- Thumbnail clicável (por cima do vídeo) -->
               <div id="videoThumbnail" class="video-thumb position-absolute top-0 start-0 w-100 h-100 rounded-4 overflow-hidden shadow-lg border"
@@ -321,25 +319,23 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script>
     document.getElementById("videoThumbnail").addEventListener("click", function () {
       const thumb = this;
       const container = document.getElementById("videoContainer");
-      const iframe = document.getElementById("youtubeVideo");
+      const video = document.getElementById("localVideo");
       const wrapper = container.parentElement;
 
-      // Garante dimensões explícitas no iframe (evita altura 0)
+      // Garante dimensões explícitas no vídeo
       const rect = wrapper.getBoundingClientRect();
-      iframe.style.width = rect.width + "px";
-      iframe.style.height = rect.height + "px";
+      video.style.width = rect.width + "px";
+      video.style.height = rect.height + "px";
 
-      // Carrega vídeo com autoplay
-      iframe.src = "https://www.youtube.com/embed/FoWzHBXiEmc?autoplay=1";
-
-      // Transição suave: fade out thumbnail, fade in vídeo
+      // Transição suave: fade out thumbnail, fade in vídeo e reproduz
       thumb.classList.add("is-hidden");
       container.classList.add("is-visible");
+      video.play();
     });
   </script>
 </body>
