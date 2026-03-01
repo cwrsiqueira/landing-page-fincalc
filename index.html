@@ -2,6 +2,15 @@
 <html lang="pt-BR">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RB6XJ55SR7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RB6XJ55SR7');
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FinCalc - Simulador Financeiro</title>
@@ -15,6 +24,12 @@
   <meta property="og:description" content="Simulador financeiro com 12 calculadoras: juros, empréstimo PRICE/SAC, renda passiva, aposentadoria. Baixe grátis no Google Play.">
   <meta property="og:image" content="https://fincalc.carlosdev.com.br/assets/fincalc-mockup.png">
   <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FinCalc - Simulador Financeiro">
+  <meta name="twitter:description" content="Simulador financeiro com 12 calculadoras: juros, empréstimo PRICE/SAC, renda passiva, aposentadoria. Baixe grátis no Google Play.">
+  <meta name="twitter:image" content="https://fincalc.carlosdev.com.br/assets/fincalc-mockup.png">
 
   <!-- Favicon -->
   <link rel="icon" href="assets/favicon.png" type="image/png">
@@ -33,6 +48,40 @@
       "priceCurrency": "BRL"
     },
     "url": "https://play.google.com/store/apps/details?id=com.cwrsiqueira.fincalc"
+  }
+  </script>
+
+  <!-- Schema.org - FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "O FinCalc é gratuito?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. O FinCalc oferece 3 calculadoras gratuitas. A versão premium libera todas as 12 calculadoras e remove anúncios."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quais calculadoras estão disponíveis no FinCalc?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O FinCalc inclui simuladores de juros simples e compostos, valor futuro, renda passiva, aposentadoria, empréstimo PRICE e SAC, conversores de taxa e mais."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O FinCalc tem anúncios?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A versão gratuita pode exibir anúncios. A versão premium remove todos os anúncios."
+        }
+      }
+    ]
   }
   </script>
 
@@ -158,10 +207,10 @@
           <li class="nav-item"><a class="nav-link" href="termos-de-uso.html">Termos</a></li>
 
           <li class="nav-item">
-            <a class="nav-link px-2"
+            <a class="nav-link px-2 ga-play-badge"
               href="https://play.google.com/store/apps/details?id=com.cwrsiqueira.fincalc&pcampaignid=web_share"
               target="_blank" rel="noopener noreferrer">
-              <img class="store-badge" src="assets/google-play-badge.png" alt="Disponível no Google Play">
+              <img class="store-badge" src="assets/google-play-badge.png" alt="Disponível no Google Play - Baixar FinCalc simulador financeiro">
             </a>
           </li>
 
@@ -183,7 +232,7 @@
           <span class="badge rounded-pill px-3 py-2 mb-3">12 simuladores financeiros em um só app</span>
           <h1 class="display-5 fw-bold mb-3">FinCalc - Simulador Financeiro</h1>
           <p class="lead mb-4">
-            Juros simples e compostos, renda passiva, aposentadoria, empréstimo PRICE/SAC, conversores e mais.
+            <strong>Simulador financeiro</strong> com 12 calculadoras: juros simples e compostos, renda passiva, aposentadoria, empréstimo PRICE/SAC, conversores e mais.
             Simule cenários e planeje com praticidade.
           </p>
 
@@ -194,9 +243,9 @@
           </div>
 
           <div class="d-flex flex-wrap align-items-center gap-3">
-            <a href="https://play.google.com/store/apps/details?id=com.cwrsiqueira.fincalc&pcampaignid=web_share"
+            <a class="ga-play-badge" href="https://play.google.com/store/apps/details?id=com.cwrsiqueira.fincalc&pcampaignid=web_share"
               target="_blank" rel="noopener noreferrer">
-              <img class="store-badge" src="assets/google-play-badge.png" alt="Disponível no Google Play">
+              <img class="store-badge" src="assets/google-play-badge.png" alt="Disponível no Google Play - Baixar FinCalc simulador financeiro">
             </a>
 
             <button class="btn btn-outline-secondary" type="button" disabled title="Em breve">
@@ -227,7 +276,7 @@
               <!-- Thumbnail clicável (por cima do vídeo) -->
               <div id="videoThumbnail" class="video-thumb position-absolute top-0 start-0 w-100 h-100 rounded-4 overflow-hidden shadow-lg border"
                 style="cursor: pointer; z-index: 2;">
-                <img src="assets/fincalc-mockup.png" alt="FinCalc - Simulador Financeiro"
+                <img src="assets/fincalc-mockup.png" alt="FinCalc - Simulador financeiro com 12 calculadoras"
                   class="w-100 h-100" style="object-fit: cover;">
                 <div class="position-absolute top-0 start-0 w-100 h-100 rounded-4"
                   style="background: rgba(0,0,0,0.15); pointer-events: none;"></div>
@@ -257,7 +306,7 @@
         <div class="col-lg-8">
           <div class="card h-100">
             <div class="card-body p-4 p-lg-5">
-              <h2 class="h3 fw-bold mb-2">Simule com rapidez e clareza</h2>
+              <h2 class="h3 fw-bold mb-2">Simulador financeiro: simule com rapidez e clareza</h2>
               <p class="small-muted mb-4">
                 Tenha em mãos simuladores essenciais para comparar cenários e planejar melhor.
               </p>
@@ -290,9 +339,9 @@
               </div>
 
               <div class="d-flex flex-wrap align-items-center gap-3">
-                <a href="https://play.google.com/store/apps/details?id=com.cwrsiqueira.fincalc&pcampaignid=web_share"
+                <a class="ga-play-badge" href="https://play.google.com/store/apps/details?id=com.cwrsiqueira.fincalc&pcampaignid=web_share"
                   target="_blank" rel="noopener noreferrer">
-                  <img class="store-badge" src="assets/google-play-badge.png" alt="Disponível no Google Play">
+                  <img class="store-badge" src="assets/google-play-badge.png" alt="Disponível no Google Play - Baixar FinCalc simulador financeiro" loading="lazy">
                 </a>
                 <a class="btn btn-outline-primary" href="politica-privacidade.html">Ver Política</a>
                 <a class="btn btn-outline-primary" href="termos-de-uso.html">Ver Termos</a>
@@ -335,6 +384,51 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <h2 class="h3 fw-bold mb-4">Perguntas frequentes sobre o FinCalc</h2>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item border rounded-3 mb-2">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+              O FinCalc é gratuito?
+            </button>
+          </h3>
+          <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Sim. O FinCalc oferece 3 calculadoras gratuitas. A versão premium libera todas as 12 calculadoras e remove anúncios.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item border rounded-3 mb-2">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+              Quais calculadoras estão disponíveis no FinCalc?
+            </button>
+          </h3>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              O FinCalc inclui simuladores de juros simples e compostos, valor futuro, renda passiva, aposentadoria, empréstimo PRICE e SAC, conversores de taxa e mais.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item border rounded-3 mb-2">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+              O FinCalc tem anúncios?
+            </button>
+          </h3>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              A versão gratuita pode exibir anúncios. A versão premium remove todos os anúncios.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer class="py-4 border-top bg-white">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
       <div class="small small-muted">© 2026 – FinCalc - Simulador Financeiro. Todos os direitos reservados.</div>
@@ -348,21 +442,36 @@
 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script>
+    // GA4: clique no badge Google Play
+    document.querySelectorAll(".ga-play-badge").forEach(function(el) {
+      el.addEventListener("click", function() {
+        if (typeof gtag === "function") {
+          gtag("event", "click_play_store", { event_category: "conversion", event_label: "download_app" });
+        }
+      });
+    });
+
+    // Vídeo: transição e reprodução
     document.getElementById("videoThumbnail").addEventListener("click", function () {
       const thumb = this;
       const container = document.getElementById("videoContainer");
       const video = document.getElementById("localVideo");
       const wrapper = container.parentElement;
 
-      // Garante dimensões explícitas no vídeo
       const rect = wrapper.getBoundingClientRect();
       video.style.width = rect.width + "px";
       video.style.height = rect.height + "px";
 
-      // Transição suave: fade out thumbnail, fade in vídeo e reproduz
       thumb.classList.add("is-hidden");
       container.classList.add("is-visible");
       video.play();
+    });
+
+    // GA4: reprodução do vídeo
+    document.getElementById("localVideo").addEventListener("play", function() {
+      if (typeof gtag === "function") {
+        gtag("event", "video_play", { event_category: "engagement", event_label: "apresentacao_fincalc" });
+      }
     });
   </script>
 </body>
